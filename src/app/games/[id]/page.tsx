@@ -52,61 +52,61 @@ export default function GameDetailPage() {
       subtitle={"Controlla metadati, autore dell'inserimento e testo PGN per ogni partita conservata nel database."}
     >
       <div className="mb-6 flex gap-3">
-        <Link className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-200 transition hover:bg-white/10" href="/">
+        <Link className="border border-gray-300 px-4 py-2 text-sm text-black hover:bg-gray-100" href="/">
           Torna all&apos;elenco
         </Link>
-        <Link className="rounded-full bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200" href="/add">
+        <Link className="bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800" href="/add">
           Aggiungi altra partita
         </Link>
       </div>
 
       {!supabaseReady ? (
-        <div className="rounded-[2rem] border border-amber-300/20 bg-amber-300/10 p-6 text-amber-50">
+        <div className="border border-yellow-300 bg-yellow-50 p-6 text-yellow-900">
           Configura Supabase per vedere i dati.
         </div>
       ) : null}
 
       {loading ? (
-        <div className="rounded-[2rem] border border-white/10 bg-slate-950/60 p-8 text-slate-300">
+        <div className="border border-gray-300 bg-gray-50 p-8 text-gray-600">
           Caricamento partita...
         </div>
       ) : error ? (
-        <div className="rounded-[2rem] border border-rose-400/30 bg-rose-400/10 p-6 text-rose-100">
+        <div className="border border-red-300 bg-red-50 p-6 text-red-900">
           {error}
         </div>
       ) : game ? (
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <section className="rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
-            <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/75">{formatPlayedDate(game.played_at)}</p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">{buildGameTitle(game)}</h2>
-            <div className="mt-5 grid gap-4 text-sm text-slate-300">
+          <section className="border border-gray-300 bg-white p-6">
+            <p className="text-xs uppercase tracking-widest text-gray-600">{formatPlayedDate(game.played_at)}</p>
+            <h2 className="mt-2 text-3xl font-semibold text-black">{buildGameTitle(game)}</h2>
+            <div className="mt-5 grid gap-4 text-sm">
               <div>
-                <span className="block text-xs uppercase tracking-[0.24em] text-slate-400">Evento</span>
-                <span>{game.event || "-"}</span>
+                <span className="block text-xs uppercase tracking-widest text-gray-600">Evento</span>
+                <span className="text-gray-800">{game.event || "-"}</span>
               </div>
               <div>
-                <span className="block text-xs uppercase tracking-[0.24em] text-slate-400">Luogo</span>
-                <span>{game.site || "-"}</span>
+                <span className="block text-xs uppercase tracking-widest text-gray-600">Luogo</span>
+                <span className="text-gray-800">{game.site || "-"}</span>
               </div>
               <div>
-                <span className="block text-xs uppercase tracking-[0.24em] text-slate-400">Turno</span>
-                <span>{game.round || "-"}</span>
+                <span className="block text-xs uppercase tracking-widest text-gray-600">Turno</span>
+                <span className="text-gray-800">{game.round || "-"}</span>
               </div>
               <div>
-                <span className="block text-xs uppercase tracking-[0.24em] text-slate-400">Aggiunta da</span>
-                <span>{formatAddedBy(game)}</span>
+                <span className="block text-xs uppercase tracking-widest text-gray-600">Aggiunta da</span>
+                <span className="text-gray-800">{formatAddedBy(game)}</span>
               </div>
             </div>
           </section>
 
-          <section className="rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
+          <section className="border border-gray-300 bg-white p-6">
             <div className="flex items-center justify-between gap-4">
-              <h3 className="text-lg font-semibold text-white">PGN</h3>
-              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">
+              <h3 className="font-semibold text-black">PGN</h3>
+              <span className="border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-semibold text-black">
                 {game.result}
               </span>
             </div>
-            <pre className="mt-5 overflow-x-auto rounded-[1.4rem] border border-white/10 bg-slate-900/90 p-4 font-mono text-sm leading-6 text-slate-100">
+            <pre className="mt-5 overflow-x-auto border border-gray-300 bg-gray-50 p-4 font-mono text-sm leading-6 text-black">
               {game.pgn}
             </pre>
           </section>

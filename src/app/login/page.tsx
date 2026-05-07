@@ -51,46 +51,46 @@ export default function LoginPage() {
       <div className="grid gap-6 lg:grid-cols-[1.4fr_0.8fr]">
         <form
           onSubmit={handleSubmit}
-          className="rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)]"
+          className="space-y-5 border border-gray-300 bg-white p-6"
         >
-          <label className="space-y-2 text-sm text-slate-200">
-            <span className="text-xs uppercase tracking-[0.24em] text-slate-400">Email</span>
+          <label className="space-y-1 text-sm">
+            <span className="block text-xs uppercase tracking-widest text-gray-600">Email</span>
             <input
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               type="email"
               required
-              className="w-full rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white outline-none focus:border-cyan-300/50"
+              className="w-full border border-gray-300 bg-white px-3 py-2 text-black outline-none focus:border-black"
               placeholder="nome@example.com"
             />
           </label>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3">
             <button
               type="submit"
-              className="rounded-full bg-cyan-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-200"
+              className="bg-black px-5 py-2 font-semibold text-white hover:bg-gray-800"
             >
               Invia link
             </button>
             <button
               type="button"
               onClick={handleSignOut}
-              className="rounded-full border border-white/10 px-5 py-3 font-semibold text-slate-200 transition hover:bg-white/10"
+              className="border border-gray-300 px-5 py-2 font-semibold text-black hover:bg-gray-100"
             >
               Disconnetti
             </button>
           </div>
 
           {status ? (
-            <div className="mt-5 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 text-cyan-50">
+            <div className="border border-green-300 bg-green-50 p-4 text-green-900">
               {status}
             </div>
           ) : null}
         </form>
 
-        <aside className="rounded-[2rem] border border-white/10 bg-white/8 p-6 text-slate-200 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
-          <h2 className="text-lg font-semibold text-white">Cosa serve</h2>
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+        <aside className="border border-gray-300 bg-gray-50 p-6 text-gray-600">
+          <h2 className="font-semibold text-black">Cosa serve</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-6">
             <li>1. Email login di Supabase attivo nel progetto.</li>
             <li>2. Variabili ambiente impostate su Vercel.</li>
             <li>3. RLS e policy applicate allo schema SQL.</li>
