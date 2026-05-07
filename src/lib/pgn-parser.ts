@@ -1,4 +1,4 @@
-import { parsePgn } from "pgn-parser";
+import { parse as parsePgn } from "pgn-parser";
 import type { ChessGame } from "./chess";
 
 export type ParsedGame = Pick<
