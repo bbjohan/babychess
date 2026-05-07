@@ -60,7 +60,7 @@ export function PgnUpload({ onGamesDetected, isLoading }: PgnUploadProps) {
 
   return (
     <div className="space-y-3">
-      <label className="flex w-full cursor-pointer items-center justify-center border-2 border-dashed border-gray-400 bg-gray-50 px-6 py-8 transition hover:border-black hover:bg-gray-100">
+      <label className="flex w-full cursor-pointer items-center justify-center border-2 border-dashed border-gray-600 bg-gray-900 px-6 py-8 transition hover:border-gray-400 hover:bg-gray-800">
         <input
           type="file"
           accept=".pgn"
@@ -70,17 +70,17 @@ export function PgnUpload({ onGamesDetected, isLoading }: PgnUploadProps) {
           className="hidden"
         />
         <div className="text-center">
-          <div className="text-sm font-medium text-black">
+          <div className="text-sm font-medium text-gray-100">
             {parsing ? "Parsing..." : "Trascina file PGN qui o clicca per selezionare"}
           </div>
-          <div className="mt-1 text-xs text-gray-600">
+          <div className="mt-1 text-xs text-gray-400">
             {files.length > 0 ? `${files.length} file selezionato${files.length !== 1 ? "i" : ""}` : "Supporta più file contemporaneamente"}
           </div>
         </div>
       </label>
 
       {error ? (
-        <div className="border border-red-300 bg-red-50 p-3 text-sm text-red-900">
+        <div className="border border-red-700 bg-red-900 p-3 text-sm text-red-100">
           {error}
         </div>
       ) : null}
