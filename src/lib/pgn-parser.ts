@@ -14,7 +14,17 @@ export function extractGamesFromPgn(pgnText: string): ParsedGame[] {
     }
 
     return games.map((game) => {
-      const headers = game.headers || {};
+      // Convert headers array to Record
+      const headersArray = game.headers || [];
+      const headers: Record<string, string> = {};
+      if (Array.isArray(headersArray)) {
+        headersArray.forEach((h: any) => {
+          headers[h.name] = h.value;
+        });
+      } else {
+        Object.assign(headers, headersArray);
+      }
+
       const moves = game.moves || [];
 
       const white = headers.White || "Unknown";
@@ -54,14 +64,15 @@ export function extractGamesFromPgn(pgnText: string): ParsedGame[] {
 
 function formatPgnText(
   headers: Record<string, string>,
-  moves: Array<{ notation?: string; [key: string]: unknown }>,
+  moves: Array<{ move?: string; notation?: string; [key: string]: unknown }>,
 ): string {
   const headerLines = Object.entries(headers)
     .map(([key, value]) => `[${key} "${value}"]`)
     .join("\n");
 
   const moveLine = moves
-    .map((m) => m.notation || "")
+    .map((m) => m.move || m.notation || "")
+    .filter(m => m !== "")
     .join(" ")
     .trim();
 
