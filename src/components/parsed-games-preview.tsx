@@ -61,7 +61,7 @@ export function ParsedGamesPreview({
         {games.map((game, index) => (
           <label
             key={index}
-            className="flex cursor-pointer items-start gap-3 border border-gray-700 bg-gray-900 p-3 hover:bg-gray-800">
+            className="flex cursor-pointer items-start gap-3 border border-gray-700 bg-gray-900 p-3 hover:bg-gray-800"
           >
             <input
               type="checkbox"
@@ -87,14 +87,14 @@ export function ParsedGamesPreview({
           type="button"
           onClick={handleSubmit}
           disabled={selectedIds.size === 0 || isLoading}
-          className="bg-gray-100/10 px-4 py-2 font-semibold text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-600">
+          className="bg-gray-100/10 px-4 py-2 font-semibold text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-600"
         >
           Carica {selectedIds.size} partita{selectedIds.size !== 1 ? "e" : ""}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="border border-gray-700 px-4 py-2 text-white hover:bg-gray-800">
+          className="border border-gray-700 px-4 py-2 text-white hover:bg-gray-800"
         >
           Annulla
         </button>

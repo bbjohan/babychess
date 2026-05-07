@@ -35,6 +35,13 @@ for insert
 to authenticated
 with check (auth.uid() = added_by_user_id);
 
+drop policy if exists "Anon insert with nickname" on public.chess_games;
+create policy "Anon insert with nickname"
+on public.chess_games
+for insert
+to anon
+with check (added_by_user_id is null and added_by_email is not null);
+
 drop policy if exists "Authenticated update own" on public.chess_games;
 create policy "Authenticated update own"
 on public.chess_games

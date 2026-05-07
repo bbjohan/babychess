@@ -155,28 +155,29 @@ export default function AddGamePage() {
         </label>
 
         <div className="mb-6 flex gap-3 border-b border-gray-700">
-        <button
-          type="button"
-          onClick={() => setMode("upload")}
-          className={`px-4 py-2 font-semibold ${
-            mode === "upload"
-              ? "border-b-2 border-gray-400 text-gray-100"
-              : "border-b-2 border-transparent text-gray-400 hover:text-gray-200"
-          }`}
-        >
-          Carica file PGN
-        </button>
-        <button
-          type="button"
-          onClick={() => setMode("manual")}
-          className={`px-4 py-2 font-semibold ${
-            mode === "manual"
-              ? "border-b-2 border-gray-400 text-gray-100"
-              : "border-b-2 border-transparent text-gray-400 hover:text-gray-200"
-          }`}
-        >
-          Inserisci manualmente
-        </button>
+          <button
+            type="button"
+            onClick={() => setMode("upload")}
+            className={`px-4 py-2 font-semibold ${
+              mode === "upload"
+                ? "border-b-2 border-gray-400 text-gray-100"
+                : "border-b-2 border-transparent text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Carica file PGN
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode("manual")}
+            className={`px-4 py-2 font-semibold ${
+              mode === "manual"
+                ? "border-b-2 border-gray-400 text-gray-100"
+                : "border-b-2 border-transparent text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Inserisci manualmente
+          </button>
+        </div>
       </div>
 
       {mode === "upload" ? (
